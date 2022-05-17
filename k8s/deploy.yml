@@ -1,41 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  generation: 1
-  labels:
-    app: ctse-sliit
-  name: ctse-sliit
-  namespace: default
+  name: ctse-shop-cutomer
 spec:
-  progressDeadlineSeconds: 600
-  replicas: 1
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: ctse-sliit
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+      app: ctse-shop-cutomer
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: ctse-sliit
+        app: ctse-shop-cutomer
     spec:
       containers:
-      - image: hash151/ctse-shop-customer:d5c0bcfd239b28ae9d20d7f3ddd2b83113f91721
-        imagePullPolicy: Always
-        name: ctse-shop-customer
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-        ports:
-         - containerPort: 3000
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
+        - name: ctse-shop-cutomer
+          image: hash151/ctse-shop-cutomer
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000
      
