@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ctse-shop-cutomer
+  name: ctse-shop-customer
 spec:
   selector:
-    app: ctse-shop-cutomer
+    app: ctse-shop-customer
   type: LoadBalancer
   ports:
     - port: 3000

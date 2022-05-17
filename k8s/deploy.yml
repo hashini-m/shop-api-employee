@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ctse-shop-cutomer
+  name: ctse-shop-customer
 spec:
   selector:
     matchLabels:
-      app: ctse-shop-cutomer
+      app: ctse-shop-customer
   template:
     metadata:
       labels:
-        app: ctse-shop-cutomer
+        app: ctse-shop-customer
     spec:
       containers:
-        - name: ctse-shop-cutomer
-          image: hash151/ctse-shop-cutomer
+        - name: ctse-shop-customer
+          image: hash151/ctse-shop-customer
           resources:
             limits:
               memory: "512Mi"
